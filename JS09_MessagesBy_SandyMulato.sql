@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 192.168.30.22
--- Tiempo de generación: 03-09-2018 a las 02:41:53
+-- Tiempo de generación: 03-09-2018 a las 04:04:34
 -- Versión del servidor: 10.1.26-MariaDB-0+deb9u1
 -- Versión de PHP: 7.2.8-1+0~20180725124257.2+stretch~1.gbp571e56
 
@@ -44,6 +44,26 @@ INSERT INTO `Messages` (`Message_Id`, `User_Id`, `Content`, `Created_At`) VALUES
 (2, 1, 'Are u there?', '2018-09-02 00:18:13'),
 (4, 2, 'I’m here! Really cool. How about you man? Tell me something.', '2018-09-02 00:18:14');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Users`
+--
+
+CREATE TABLE `Users` (
+  `User_Id` int(11) NOT NULL,
+  `Username` tinytext,
+  `Password` char(41) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `Users`
+--
+
+INSERT INTO `Users` (`User_Id`, `Username`, `Password`) VALUES
+(1, 'tapeface', '*241922C6153A203FF153C5661611D9623BB377A4'),
+(2, 'butterface', '*CB48C592BACF8FC43AAA2FAE79DEDE64F9DB7504');
+
 --
 -- Índices para tablas volcadas
 --
@@ -56,6 +76,12 @@ ALTER TABLE `Messages`
   ADD KEY `User_Id` (`User_Id`);
 
 --
+-- Indices de la tabla `Users`
+--
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`User_Id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -64,6 +90,12 @@ ALTER TABLE `Messages`
 --
 ALTER TABLE `Messages`
   MODIFY `Message_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `Users`
+--
+ALTER TABLE `Users`
+  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
